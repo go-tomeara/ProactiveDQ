@@ -1,0 +1,6 @@
+﻿CREATE TABLE [DataVault].[ExampleType] (
+    [ID] INT IDENTITY (1, 1) NOT NULL,
+	[TypeValue] VARCHAR(255) NOT NULL,
+    CONSTRAINT [PK_ExampleType] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+

@@ -1,0 +1,6 @@
+﻿CREATE TABLE dq.Issue
+(
+	  [ID] INT IDENTITY(1,1) NOT NULL
+	, [Description] VARCHAR(MAX)
+	, CONSTRAINT PK_Issue PRIMARY KEY ( ID )
+)

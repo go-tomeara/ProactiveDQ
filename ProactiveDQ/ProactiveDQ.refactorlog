@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="5b74bef3-8942-4d74-9dd4-c47078d5c59b" ChangeDateTime="06/11/2018 22:39:56">
+    <Property Name="ElementName" Value="[dq].[DataIssue].[JobStepID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dq].[DataIssue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Description" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5d272a15-c67e-4088-b33c-8737ee8c23ff" ChangeDateTime="06/12/2018 16:00:08">
+    <Property Name="ElementName" Value="[dbo].[Issue].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Issue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dacb2958-cf47-4b17-865e-802e4249a6a7" ChangeDateTime="06/12/2018 17:21:52">
+    <Property Name="ElementName" Value="[dq].[DataIssue].[Description]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dq].[DataIssue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IssueId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="567fdd7e-0009-4fd1-97da-08d8084b651f" ChangeDateTime="06/12/2018 21:17:22">
+    <Property Name="ElementName" Value="[dbo].[TableIssue].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TableIssue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TableID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="53ed2cad-bc54-4557-a5f0-e81c04078575" ChangeDateTime="06/12/2018 21:21:22">
+    <Property Name="ElementName" Value="[dq].[DataIssue].[JobTaskId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dq].[DataIssue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="JobTaskID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fb9cdff5-ccc8-4e9c-91a1-461513ee7172" ChangeDateTime="06/12/2018 22:26:39">
+    <Property Name="ElementName" Value="[dbo].[BatchJobTask].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BatchJobTask]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BatchID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f8c589a9-0414-4300-92ff-1fcd94aac0e6" ChangeDateTime="06/13/2018 21:58:53">
+    <Property Name="ElementName" Value="[Staging].[ExampleData].[ID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Staging].[ExampleData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RowID" />
+  </Operation>
+</Operations>

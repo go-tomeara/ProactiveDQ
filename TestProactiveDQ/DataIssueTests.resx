@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="dq_sp_DataIssue_InsertTest_TestAction.SqlScript" xml:space="preserve">
+    <value>/*	=====================================================================================================	
+	Declare Variables
+	=====================================================================================================	*/
+	DECLARE @LoadDate AS DATETIME = GETDATE();
+	DECLARE @EndDate AS DATETIME = GETDATE();
+	DECLARE @BatchID AS INT;
+	 SELECT @BatchID = B.ID FROM dq.Batch AS B WHERE B.EndDate IS NULL
+/*	=====================================================================================================	
+	Execute code under test
+	=====================================================================================================	*/
+	EXECUTE dq.sp_DataIssue_Insert @BatchID, @LoadDate, 'Job1', 'JobTask_IDUpdate', 'Table1', 'SourceRowPK', 'JobTask.ID', 'Nonsense', 'JobTask.ID value not found for JobTask.Name';	
+	 UPDATE dq.Batch SET EndDate = @EndDate WHERE ID = @BatchID;
+/*	=====================================================================================================	
+	Get Test data for assertions
+	=====================================================================================================	*/
+	SELECT COUNT(*) FROM dq.DataIssue;</value>
+  </data>
+  <data name="dq_sp_DataIssue_InsertTest_PretestAction.SqlScript" xml:space="preserve">
+    <value>/*	=====================================================================================================	
+	Declare Variables
+	=====================================================================================================	*/
+	DECLARE @IssueDescription AS VARCHAR(MAX) = 'JobTask.ID value not found for JobTask.Name';
+	DECLARE @IssueID AS INT;
+	DECLARE @JobTaskName AS VARCHAR(255) = 'JobTask_IDUpdate';
+	DECLARE @JobName AS VARCHAR(255) = 'Job1';
+	DECLARE @JobID AS INT;
+	DECLARE @TableName AS VARCHAR(255) = 'Table1'
+	DECLARE @TableID AS INT;
+	DECLARE @Schema AS VARCHAR(255) = 'dq';
+	DECLARE @Database AS VARCHAR(255) = 'Database1';
+	DECLARE @BatchStartDate AS DATETIME = GETDATE();
+	DECLARE @BatchID AS INT;
+	DECLARE @JobTaskID AS INT;
+
+/*	=====================================================================================================	
+	Cleanse Database of Test Data
+	=====================================================================================================	*/
+	DELETE FROM ProactiveDQ.Staging.ExampleData;
+	DELETE FROM DataVault.ExampleData;
+	DELETE FROM DataVault.ExampleType;
+	DELETE FROM dq.DataIssue;
+	DELETE FROM dq.BatchJobTask;
+	DELETE FROM dq.TableIssue;
+	DELETE FROM dq.JobTask;
+	DELETE FROM dq.Job;
+	DELETE FROM dq.Issue;
+	DELETE FROM dq.[Table]
+	DELETE FROM dq.Batch;
+
+/*	=====================================================================================================	
+	Insert test data
+	=====================================================================================================	*/
+	INSERT INTO dq.Batch ( StartDate ) VALUES ( @BatchStartDate );
+	SELECT @BatchID = B.ID FROM dq.Batch AS B WHERE B.StartDate IS NOT NULL AND B.EndDate IS NULL;
+	INSERT INTO dq.Issue ( [Description] ) VALUES ( @IssueDescription );
+	SELECT @IssueID = I.ID FROM dq.Issue AS I WHERE I.[Description] = @IssueDescription;
+	INSERT INTO dq.Job ( [Name] ) VALUES ( @JobName );
+	SELECT @JobID = J.ID FROM dq.Job AS J WHERE J.[Name] = @JobName;
+	INSERT INTO dq.JobTask ( [Name], JobID ) VALUES ( @JobTaskName, @JobID );
+	SELECT @JobTaskID = JT.ID FROM dq.JobTask AS JT WHERE JT.JobID = @JobID
+	INSERT INTO dq.BatchJobTask ( BatchID, JobID, JobTaskID, StartDate ) VALUES ( @BatchID, @JobID, @JobTaskID, @BatchStartDate );
+	INSERT INTO dq.[Table] ( [Name], [Schema], [Database] ) VALUES ( @TableName, @Schema, @Database );
+	SELECT @TableID = T.ID FROM dq.[Table] AS T WHERE T.[Name] = @TableName;
+	INSERT INTO dq.TableIssue ( TableID, IssueID ) VALUES ( @TableID, @IssueID );</value>
+  </data>
+  <data name="dq_sp_DataIssue_InsertTest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*	=====================================================================================================	
+	Cleanse Database of Test Data
+	=====================================================================================================	*/
+	DELETE FROM ProactiveDQ.Staging.ExampleData;
+	DELETE FROM DataVault.ExampleData;
+	DELETE FROM DataVault.ExampleType;
+	DELETE FROM dq.DataIssue;
+	DELETE FROM dq.BatchJobTask;
+	DELETE FROM dq.TableIssue;
+	DELETE FROM dq.JobTask;
+	DELETE FROM dq.Job;
+	DELETE FROM dq.Issue;
+	DELETE FROM dq.[Table]
+	DELETE FROM dq.Batch;</value>
+  </data>
+  <data name="StagingLookupTest_TestAction.SqlScript" xml:space="preserve">
+    <value>/*	=====================================================================================================	
+	Declare Variables
+	=====================================================================================================	*/
+	DECLARE @LoadDate AS DATETIME2 = GETDATE();
+	DECLARE @EndDate AS DATETIME = GETDATE();
+	DECLARE @BatchID AS INT;
+	DECLARE @JobID AS INT;
+	DECLARE @JobTaskID AS INT;
+	DECLARE @BatchJobTaskStartDate AS DATETIME = GETDATE();
+	DECLARE @Value AS VARCHAR(MAX);
+	DECLARE @Value2 AS VARCHAR(MAX);
+
+/*	=====================================================================================================	
+	Execute code under test
+	=====================================================================================================	*/
+	-- Start a Batch
+	INSERT INTO dq.Batch ( StartDate ) VALUES ( @LoadDate );
+	 SELECT @BatchID = B.ID FROM dq.Batch AS B WHERE B.EndDate IS NULL;
+
+	SELECT @JobID = J.ID FROM dq.Job AS J WHERE J.[Name] = 'LoadAnimalData';
+	SELECT @JobTaskID = JT.ID FROM dq.JobTask AS JT WHERE JT.JobID = @JobID AND JT.[Name] = 'LookupExampleTypeDataID';
+
+	-- Log BatchJobTask
+	INSERT INTO dq.BatchJobTask ( BatchID, JobID, JobTaskID, StartDate ) VALUES ( @BatchID, @JobID, @JobTaskID, @BatchJobTaskStartDate );
+
+	-- EXECUTE the Validator
+	SELECT @Value = DE.SourceFkTypeValue FROM Staging.ExampleData AS DE WHERE SourceRowKey = 1001;
+	SELECT @Value2 = DE.SourceNumberValue FROM Staging.ExampleData AS DE WHERE SourceRowKey = 1001;
+
+	EXECUTE dq.sp_DataIssue_Insert @BatchID, @LoadDate, 'LoadAnimalData', 'LookupExampleTypeDataID', 'ExampleData', 'SourceRowKey = 1001', 'SourceFKTypeValue', @Value, 'FK_Value_Not_Found';
+	EXECUTE dq.sp_DataIssue_Insert @BatchID, @LoadDate, 'LoadAnimalData', 'LookupExampleTypeDataID', 'ExampleData', 'SourceRowKey = 1001', 'SourceNumberValue', @Value2, 'Value_Out_Of_Range';
+	UPDATE dq.Batch SET EndDate = @EndDate WHERE ID = @BatchID;
+
+/*	=====================================================================================================	
+	Get Test data for assertions
+	=====================================================================================================	*/
+	SELECT COUNT(*) FROM dq.DataIssue;</value>
+  </data>
+  <data name="StagingLookupTest_PretestAction.SqlScript" xml:space="preserve">
+    <value>/*	=====================================================================================================	
+	Declare Variables
+	=====================================================================================================	*/
+	DECLARE @BatchID AS INT;
+	DECLARE @JobID AS INT;
+	DECLARE @JobTaskID AS INT;
+	DECLARE @TableID AS INT;
+	DECLARE @IssueID AS INT;
+	DECLARE @IssueID2 AS INT;
+	DECLARE @BatchJobTaskStartDate AS DATETIME = GETDATE();
+
+/*	=====================================================================================================	
+	Cleanse Database of Test Data
+	=====================================================================================================	*/
+	DELETE FROM ProactiveDQ.Staging.ExampleData;
+	DELETE FROM DataVault.ExampleData;
+	DELETE FROM DataVault.ExampleType;
+	DELETE FROM dq.DataIssue;
+	DELETE FROM dq.BatchJobTask;
+	DELETE FROM dq.TableIssue;
+	DELETE FROM dq.JobTask;
+	DELETE FROM dq.Job;
+	DELETE FROM dq.Issue;
+	DELETE FROM dq.[Table]
+	DELETE FROM dq.Batch;
+
+/*	=====================================================================================================	
+	Insert test data
+	=====================================================================================================	*/
+	-- Setup Table and Issue Data
+	INSERT INTO dq.[Table] ( [Name], [Schema], [Database] ) VALUES ( 'ExampleData', 'Staging', 'ProactiveDQ' );
+	INSERT INTO dq.Issue ( [Description] ) VALUES ( 'FK_Value_Not_Found' );
+	INSERT INTO dq.Issue ( [Description] ) VALUES ( 'Value_Out_Of_Range' );
+	SELECT @TableID = T.ID FROM dq.[Table] AS T WHERE T.[Name] = 'ExampleData';
+	SELECT @IssueID = I.ID FROM dq.Issue AS I WHERE I.[Description] = 'FK_Value_Not_Found';
+	INSERT INTO dq.TableIssue ( TableID, IssueID ) VALUES ( @TableID, @IssueID );
+	SELECT @IssueID2 = I.ID FROM dq.Issue AS I WHERE I.[Description] = 'Value_Out_Of_Range';
+	INSERT INTO dq.TableIssue ( TableID, IssueID ) VALUES ( @TableID, @IssueID2 );
+	
+	-- Job Details
+	INSERT INTO dq.Job ( [Name] ) VALUES ( 'LoadAnimalData' );
+	SELECT @JobID = J.ID FROM dq.Job AS J WHERE J.[Name] = 'LoadAnimalData';
+	INSERT INTO dq.JobTask ( JobID, [Name] ) VALUES ( @JobID, 'LookupExampleTypeDataID' );
+
+	-- Insert Example Data
+	INSERT INTO ProactiveDQ.DataVault.ExampleType ( TypeValue ) VALUES ( 'Machine' );
+	INSERT INTO ProactiveDQ.Staging.ExampleData ( SourceRowKey, SourceFKTypeValue, SourceNumberValue ) VALUES ( 1001, 'Mammal', 100.50 );
+
+	-- Execute Lookup Operation
+	UPDATE Staging.ExampleData SET ExampleTypeID = TD.ID FROM DataVault.ExampleType AS TD WHERE SourceFkTypeValue = TD.TypeValue;</value>
+  </data>
+  <data name="StagingLookupTest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*	=====================================================================================================	
+	Cleanse Database of Test Data
+	=====================================================================================================	*/
+	DELETE FROM ProactiveDQ.Staging.ExampleData;
+	DELETE FROM DataVault.ExampleType;
+	DELETE FROM dq.DataIssue;
+	DELETE FROM dq.BatchJobTask;
+	DELETE FROM dq.TableIssue;
+	DELETE FROM dq.JobTask;
+	DELETE FROM dq.Job;
+	DELETE FROM dq.Issue;
+	DELETE FROM dq.[Table]
+	DELETE FROM dq.Batch;</value>
+  </data>
+  <data name="ExecuteSimulatedSSISPackage_TestAction.SqlScript" xml:space="preserve">
+    <value>/*	=====================================================================================================	
+	Declare Variables
+	=====================================================================================================	*/
+	DECLARE @BatchID AS INT;
+	DECLARE @BatchStartDate AS DATETIME = GETDATE();
+	 INSERT INTO dq.Batch ( StartDate ) VALUES ( @BatchStartDate );
+	 SELECT @BatchID = B.ID FROM dq.Batch AS B WHERE B.EndDate IS NULL;
+
+/*	=====================================================================================================	
+	Execute code under test
+	=====================================================================================================	*/
+	TRUNCATE TABLE dq.DataIssue;
+
+	EXECUTE etl.SimulatedSSISRootPackage @BatchID;
+	 UPDATE dq.Batch 
+	    SET EndDate = GETDATE()
+	   FROM dq.Batch AS B
+	  WHERE B.EndDate IS NULL;
+
+	EXECUTE dq.sp_ArchiveDataIssues;
+
+/*	=====================================================================================================	
+	Get Test data for assertions
+	=====================================================================================================	*/
+	SELECT COUNT(*) FROM Staging.ExampleData;
+	SELECT COUNT(*) FROM DataVault.ExampleType;
+	SELECT COUNT(*) FROM DataVault.ExampleData;
+	SELECT COUNT(*) FROM dq.DataIssue;</value>
+  </data>
+  <data name="ExecuteSimulatedSSISPackage_PretestAction.SqlScript" xml:space="preserve">
+    <value>/*	=====================================================================================================	
+	Declare Variables
+	=====================================================================================================	*/
+	DECLARE @BatchID AS INT;
+	DECLARE @JobID AS INT;
+	DECLARE @JobTaskID AS INT;
+	DECLARE @TableID AS INT;
+	DECLARE @IssueID AS INT;
+	DECLARE @IssueID2 AS INT;
+	DECLARE @BatchJobTaskStartDate AS DATETIME = GETDATE();
+
+/*	=====================================================================================================	
+	Cleanse Database of Test Data
+	=====================================================================================================	*/
+	DELETE FROM ProactiveDQ.Staging.ExampleData;
+	--DELETE FROM DataVault.ExampleData;
+	--DELETE FROM DataVault.ExampleType;
+	--DELETE FROM dq.DataIssue;
+	--DELETE FROM dq.BatchJobTask;
+	--DELETE FROM dq.TableIssue;
+	--DELETE FROM dq.JobTask;
+	--DELETE FROM dq.Job;
+	--DELETE FROM dq.Issue;
+	--DELETE FROM dq.[Table]
+	--DELETE FROM dq.Batch;
+
+/*	=====================================================================================================	
+	Insert test data
+	=====================================================================================================	*/
+	---- Setup Table and Issue Data
+	--INSERT INTO dq.[Table] ( [Name], [Schema], [Database] ) VALUES ( 'ExampleData', 'Staging', 'ProactiveDQ' );
+	--INSERT INTO dq.Issue ( [Description] ) VALUES ( 'FK_Value_Not_Found' );
+	--INSERT INTO dq.Issue ( [Description] ) VALUES ( 'Value_Out_Of_Range' );
+	--SELECT @TableID = T.ID FROM dq.[Table] AS T WHERE T.[Name] = 'ExampleData';
+	--SELECT @IssueID = I.ID FROM dq.Issue AS I WHERE I.[Description] = 'FK_Value_Not_Found';
+	--INSERT INTO dq.TableIssue ( TableID, IssueID ) VALUES ( @TableID, @IssueID );
+	--SELECT @IssueID2 = I.ID FROM dq.Issue AS I WHERE I.[Description] = 'Value_Out_Of_Range';
+	--INSERT INTO dq.TableIssue ( TableID, IssueID ) VALUES ( @TableID, @IssueID2 );
+	
+	---- Job Details
+	--INSERT INTO dq.Job ( [Name] ) VALUES ( 'Staging.SimulatedSSISRootPackage' );
+	--SELECT @JobID = J.ID FROM dq.Job AS J WHERE J.[Name] = 'Staging.SimulatedSSISRootPackage';
+	--INSERT INTO dq.JobTask ( JobID, [Name] ) VALUES ( @JobID, 'etl.SSISTask_DVExampleData_Insert' );
+	--INSERT INTO dq.JobTask ( JobID, [Name] ) VALUES ( @JobID, 'etl.SSISTask_ExampleTypeDataFK_Lookup' );
+
+	---- Insert Example Data
+	--INSERT INTO ProactiveDQ.DataVault.ExampleType ( TypeValue ) VALUES ( 'Machine' );
+	--INSERT INTO ProactiveDQ.DataVault.ExampleType ( TypeValue ) VALUES ( 'Machete' );
+	--INSERT INTO ProactiveDQ.DataVault.ExampleType ( TypeValue ) VALUES ( 'Macha' );
+	INSERT INTO ProactiveDQ.Staging.ExampleData ( SourceRowKey, SourceFKTypeValue, SourceNumberValue ) VALUES ( 1000, 'Machine', 300.00 );
+	INSERT INTO ProactiveDQ.Staging.ExampleData ( SourceRowKey, SourceFKTypeValue, SourceNumberValue ) VALUES ( 1001, 'Machete', 500.00 );
+	INSERT INTO ProactiveDQ.Staging.ExampleData ( SourceRowKey, SourceFKTypeValue, SourceNumberValue ) VALUES ( 1002, 'Macha', 50.00 );
+	INSERT INTO ProactiveDQ.Staging.ExampleData ( SourceRowKey, SourceFKTypeValue, SourceNumberValue ) VALUES ( 1003, 'Mammal', 100.50 );</value>
+  </data>
+  <data name="ExecuteSimulatedSSISPackage_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*	=====================================================================================================	
+	Cleanse Database of Test Data
+	=====================================================================================================	*/
+	--DELETE FROM ProactiveDQ.Staging.ExampleData;
+	--DELETE FROM DataVault.ExampleData;
+	--DELETE FROM DataVault.ExampleType;
+	--DELETE FROM dq.DataIssue;
+	--DELETE FROM dq.BatchJobTask;
+	--DELETE FROM dq.TableIssue;
+	--DELETE FROM dq.JobTask;
+	--DELETE FROM dq.Job;
+	--DELETE FROM dq.Issue;
+	--DELETE FROM dq.[Table]
+	--DELETE FROM dq.Batch;</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>
